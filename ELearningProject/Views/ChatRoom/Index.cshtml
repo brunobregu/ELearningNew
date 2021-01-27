@@ -1,0 +1,201 @@
+﻿@model IEnumerable<ELearningProject.Models.Comment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2 class="text-success text-center">Miresevini ne Chat</h2>
+
+@using (Html.BeginForm("PostComment", "ChatRoom", FormMethod.Post))
+{
+
+    <span class="pull-right">
+
+
+        <!--Perdoruesi  ka te ruajtur nje imazh -->
+        @if (Session["ImageUrl"].ToString().Length > 0)
+        {
+            <img src="@Url.Content(Session["ImageUrl"].ToString())" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+        }
+
+
+
+        else
+        {
+            <img src="@Url.Content("~/Profile Images/WF.jpg")" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+        }
+
+
+        <input type="text" name="CommentText" placeholder="Comment here ..." style="width:700px; height:60px; font-size:15px; margin-top:10px" />
+        <br /><br />
+        <input type="submit" value="Post Comment" class="btn btn-success" style="margin-bottom:15px" />
+    </span>
+
+}
+<table class="table">
+
+
+    @foreach (var comment in Model)
+    {
+        bool u_gjet = false;
+        <tr style="border:1px solid black">
+            <td>
+                <span style="margin-right:15px; font-size:16px; color:green">
+
+
+                    <!--Perdoruesi ka te ruajtur nje imazh-->
+                    @if (comment.User.ImageUrl.Length > 0)
+                    {
+                        <img src="@Url.Content(comment.User.ImageUrl)" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+                    }
+
+
+
+                    else
+                    {
+                        <img src="@Url.Content("~/Profile Images/WF.jpg")" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+                    }
+                    @comment.User.Username<br />
+                </span>
+
+
+                <!--Shfaq te gjithe komentet-->
+                <span style="font-size:20px; font-weight:bold">
+                    @Html.DisplayFor(modelItem => comment.Text)
+                </span>
+                <span style="margin-left:10px">
+                    @comment.CreatedOn
+                </span>
+
+                <!--Shfaq te gjithe reply per cdo koment-->
+                @foreach (var reply in comment.Replies)
+                {
+                    u_gjet = true;
+
+                    <br />
+                    <span style="margin-right:15px; font-size:16px; color:firebrick">
+
+
+                        <!--Perdoruesi ka te ruajtur nje imazh-->
+                        @if (reply.User.ImageUrl.Length > 0)
+                        {
+                            <img src="@Url.Content(reply.User.ImageUrl)" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+                        }
+
+
+
+
+                        else
+                        {
+                            <img src="@Url.Content("~/Profile Images/WF.jpg")" alt="No image" style="height:64px;" class="img-responsive img-circle" />
+                        }
+
+
+                        @reply.User.Username<br />
+                    </span>
+                    <span style="font-size:19px; font-style:italic">
+                        @reply.Text
+                    </span>
+                    <span style="margin-left:10px">
+                        @reply.CreatedOn
+                    </span>
+                    if (reply.User.Username.Equals(Session["Username"]))
+                    {
+
+                        <a href="#" class="btn btn-danger" id="replyDelete" data-toggle="tooltip" data-placement="top" title="Delete reply">
+
+                            <span><i class="glyphicon glyphicon-trash"></i></span>
+
+
+                        </a>
+
+                        <div class="modal fade" id="replyModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                        <h3 class="modal-title">Delete Reply</h3>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Jeni te sigurt qe deshironi te fshini kete reply ?</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                                        @Html.ActionLink("Fshi", "DeleteConfirm", "ChatRoom", new { id = reply.Id }, null)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+                }
+                @if (u_gjet == false)
+                {
+                    if (comment.User.Username.Equals(Session["Username"]))
+                    {
+                        <a href="#" class="btn btn-danger" id="commentDelete" data-toggle="tooltip" data-placement="top" title="Delete comment">
+
+                            <span><i class="glyphicon glyphicon-trash"></i></span>
+
+
+                        </a>
+                        <div class="modal fade" id="commentModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                        <h3 class="modal-title">Delete Comment</h3>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Jeni te sigurt qe deshironi te fshini kete comment ?</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                                        @Html.ActionLink("Fshi", "DeleteComment", "ChatRoom", new { id = comment.Id }, null)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+
+                }
+
+                <br />
+                @using (Html.BeginForm("PostReply", "ChatRoom", FormMethod.Post))
+                {
+                    <input type="text" name="Reply" placeholder="Reply here ..." style="width:100%; height:60px; font-size:15px; margin-top:10px" />
+                    <br />
+                    <input type="hidden" name="CID" value="@comment.Id" />
+                    <input type="submit" value="Post Reply" class="btn btn-success" style="margin-top:10px" />
+                }
+
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#replyDelete").click(function () {
+            $("#replyModal").modal('show');
+        });
+
+
+        $("#commentDelete").click(function () {
+            $("#commentModal").modal('show');
+        });
+    });
+</script>
+

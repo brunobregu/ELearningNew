@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ELearningProject.Models.Kursi>
+@{
+    ViewBag.Title = "Kurset";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Kurset e mia</h2>
+<div class="body-content">
+    <div>
+
+
+        @foreach (var kurs in Model)
+        {
+            <ul class="list-group">
+
+                <li class="col-lg-4">
+                    <a href="#"><img src="@Url.Content(kurs.ImagePath)" alt="No Image" style="height:150px" /></a><br /><br />
+                    <div class="modal fade" id="replyModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                    <h3 class="modal-title">Zgjidhni menyren e studimit per kete leksion</h3>
+                                </div>
+                                <div class="media-body">
+                                    @Html.ActionLink("Audio", "Materials", "Kurset", new { id = "Audio" }, null)<hr />
+                                    @Html.ActionLink("Video", "Materials", "Kurset", new { id = "Video" }, null)<hr />
+                                    @Html.ActionLink("Tekst", "Materials", "Kurset", new { id = "Tekst" }, null)
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<div>
+    <input type="submit" value="Regjistrohu ne kurs te ri" class="btn btn-info" id="registerModalClick"/>
+    
+
+
+    <div class="modal fade" id="registerModal">
+          <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">Zgjidhni kursin ku deshironi te regjistroheni</h3><br />
+                        
+                    </div>
+                                <div class="media-body form-control"><br /><br />
+                                   
+                                        @Html.DropDownList("EmriKursit", null, htmlAttributes: new { @class = "form-control" })<br /><br />
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                                   
+                                    <a href="#" class="btn btn-success" data-dismiss="modal">Regjistrohu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+    
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("a").click(function () {
+            $("#replyModal").modal('show');
+        });
+
+        $("#registerModalClick").click(function () {
+            $("#registerModal").modal('show');
+        });
+    });
+</script>
+

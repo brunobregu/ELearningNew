@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ELearningProject.Models.Kursi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kurset aktive</h2>
+<div>
+    <ul class="list-group">
+        @foreach (var kurs in Model)
+        {
+
+            <li class="col-lg-4">
+                <a href="#"><img src="@Url.Content(kurs.ImagePath)" alt="No Image" style="height:150px" /></a>
+                <div class="modal fade" id="replyModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                                <h3 class="modal-title">Zgjidhni menyren e leksionit</h3>
+                            </div>
+                            <div class="media-body">
+                                @Html.ActionLink("Audio", "Materials", "Kurset", new { id = "Audio" }, null)<hr />
+                                @Html.ActionLink("Video", "Materials", "Kurset", new { id = "Video" }, null)<hr />
+                                @Html.ActionLink("Tekst", "Materials", "Kurset", new { id = "Tekst" }, null)
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        }
+
+    </ul>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br />
+<br />
+<br />
+<div class="col-lg-12">
+    @using (Html.BeginForm("AddCourse", "Kurset", FormMethod.Get))
+    {
+        <input type="submit" value="Shto kurs" class="btn btn-success" style="margin-bottom:15px" />
+    }
+</div>
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("a").click(function () {
+            $("#replyModal").modal('show');
+        });
+
+    });
+</script>
+

@@ -1,0 +1,197 @@
+﻿
+@{
+    ViewBag.Title = "MVCQuiz";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("MVCQuiz", "Quiz", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>Informacion rreth quiz</legend>
+            <label for="quiz">Testi ka ne total 25 pyetje, ku secila pyetje ka 2 pike me nje total prej 50 pikesh.</label><br />
+            <label for="fillestar">Nqs merrni nga 0-20 pike niveli juaj eshte fillestar .</label><br />
+            <label for="mesatar">Nqs merrni nga 20-36 pike niveli juaj eshte mesatar .</label><br />
+            <label for="avancuar">Nqs merrni nga 36-50 pike niveli juaj eshte i avancuar .</label><br />
+
+        </fieldset> <br />
+        <fieldset>
+            <legend>Pyetja 1</legend>
+            <label for="1">Per cfare qendron MVC ?</label><br />
+            @Html.RadioButton("Pyetja1", "Model View Controller") Model View Controller<br />
+            @Html.RadioButton("Pyetja1", "Metadat View Controller") Metadat View Controller<br />
+            @Html.RadioButton("Pyetja1", "Model View Cut") Model View Cut<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 2</legend>
+            <label for="1">Cila sherben per te kthyer tekst te thjeshte ?</label><br />
+            @Html.RadioButton("Pyetja2", "Json") Json<br />
+            @Html.RadioButton("Pyetja2", "HttpNotFound") HttpNotFound<br />
+            @Html.RadioButton("Pyetja2", "Content") Content<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 3</legend>
+            <label for="1">Cila eshte sintaksa e sakte per ViewBag ?</label><br />
+            @Html.RadioButton("Pyetja3", "ViewBag.Afisho") ViewBag.Afisho<br />
+            @Html.RadioButton("Pyetja3", "ViewBag['Afisho']") ViewBag['Afisho']<br />
+            @Html.RadioButton("Pyetja3", "ViewBag") ViewBag<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 4</legend>
+            <label for="1">Per te shmangur dykumptimesine ne Razor perdorim ?</label><br />
+            @Html.RadioButton("Pyetja4", "()") ()<br />
+            @Html.RadioButton("Pyetja4", "@@") @@<br />
+            @Html.RadioButton("Pyetja4", "te dyja") te dyja<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 5</legend>
+            <label for="1">Cili do te jete tipi i pershtatshem per emrin ?</label><br />
+            @Html.RadioButton("Pyetja5", "int") int<br />
+            @Html.RadioButton("Pyetja5", "DateTime") DateTime<br />
+            @Html.RadioButton("Pyetja5", "string") string<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 6</legend>
+            <label for="1">Cili shfaq nje input te tipit tekst ?</label><br />
+            @Html.RadioButton("Pyetja6", "LabelFor") LabelFor<br />
+            @Html.RadioButton("Pyetja6", "TextBoxFor") TextBoxFor<br />
+            @Html.RadioButton("Pyetja6", "RadioButtonFor") RadioButtonFor<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 7</legend>
+            <label for="1">Cili sherben per te afishuar nje element perzgjidhjeje ?</label><br />
+            @Html.RadioButton("Pyetja7", "CheckBoxFor") CheckBoxFor<br />
+            @Html.RadioButton("Pyetja7", "TextBoxFor") TextBoxFor<br />
+            @Html.RadioButton("Pyetja7", "RadioButtonFor") RadioButtonFor<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 8</legend>
+            <label for="1">Cili shfaq nje fushe te fshehur ?</label><br />
+            @Html.RadioButton("Pyetja8", "CheckBoxFor") CheckBoxFor<br />
+            @Html.RadioButton("Pyetja8", "PasswordFor") PasswordFor<br />
+            @Html.RadioButton("Pyetja8", "HiddenFor") HiddenFor<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 9</legend>
+            <label for="1">Cili shfaq nje hyperlink ?</label><br />
+            @Html.RadioButton("Pyetja9", "ActionLink") ActionLink<br />
+            @Html.RadioButton("Pyetja9", "Redirect") Redirect<br />
+            @Html.RadioButton("Pyetja9", "RedirectToAction") RedirectToAction<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 10</legend>
+            <label for="1">Cila eshte nje view e pjesshme ?</label><br />
+            @Html.RadioButton("Pyetja10", "_Menu") _Menu<br />
+            @Html.RadioButton("Pyetja10", "@@Menu") @@Menu<br />
+            @Html.RadioButton("Pyetja10", "Menu") Menu<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 11</legend>
+            <label for="1">Prapashtesa qe qendron per Model ?</label><br />
+            @Html.RadioButton("Pyetja11", ".cs") .cs<br />
+            @Html.RadioButton("Pyetja11", ".cshtml") .cshtml<br />
+            @Html.RadioButton("Pyetja11", ".m") .m<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 12</legend>
+            <label for="1">Prapashtesa qe qendron per View ?</label><br />
+            @Html.RadioButton("Pyetja12", ".cs") .cs<br />
+            @Html.RadioButton("Pyetja12", ".cshtml") .cshtml<br />
+            @Html.RadioButton("Pyetja12", ".view") .view<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 13</legend>
+            <label for="1">Atributi qe e bene nje fushe te detyrueshme ?</label><br />
+            @Html.RadioButton("Pyetja13", "Required") Required<br />
+            @Html.RadioButton("Pyetja13", "StringLength") StringLength<br />
+            @Html.RadioButton("Pyetja13", "RegularExpression") RegularExpression<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 14</legend>
+            <label for="1">Atributi qe fusha te jete nje shprehje e rregullt ?</label><br />
+            @Html.RadioButton("Pyetja14", "Required") Required<br />
+            @Html.RadioButton("Pyetja14", "StringLength") StringLength<br />
+            @Html.RadioButton("Pyetja14", "RegularExpression") RegularExpression<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 15</legend>
+            <label for="1">Per cfare qendron LINQ ?</label><br />
+            @Html.RadioButton("Pyetja15", "Language Integrated Query") Language Integrated Query<br />
+            @Html.RadioButton("Pyetja15", "Language Integrated Name Query") Language Integrated Name Query<br />
+            @Html.RadioButton("Pyetja15", "Language Query") Language Query<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 16</legend>
+            <label for="1">Sa lloj sintaksash ka LINQ ?</label><br />
+            @Html.RadioButton("Pyetja16", "1") 1<br />
+            @Html.RadioButton("Pyetja16", "2") 2<br />
+            @Html.RadioButton("Pyetja16", "3") 3<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 17</legend>
+            <label for="1">Cila prej te meposhtemeve rendit vlerat ne rendin rrites ?</label><br />
+            @Html.RadioButton("Pyetja17", "OrderByDescending") OrderByDescending<br />
+            @Html.RadioButton("Pyetja17", "ThenBy") ThenBy<br />
+            @Html.RadioButton("Pyetja17", "OrderBy") OrderBy<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 18</legend>
+            <label for="1">Cila prej te meposhtemeve kthen rendin ne anen e kundert ?</label><br />
+            @Html.RadioButton("Pyetja18", "Reverse") Reverse<br />
+            @Html.RadioButton("Pyetja18", "ThenBy") ThenBy<br />
+            @Html.RadioButton("Pyetja18", "Contain") Contain<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 19</legend>
+            <label for="1">Cila prej te meposhtemeve heq dublikatat nga nje koleksion ?</label><br />
+            @Html.RadioButton("Pyetja19", "Except") Except<br />
+            @Html.RadioButton("Pyetja19", "Distinct") Distinct<br />
+            @Html.RadioButton("Pyetja19", "Intersect") Intersect<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 20</legend>
+            <label for="1">Cila prej te meposhtemeve perzgjedh vlerat qe bazohen ne nje kusht ?</label><br />
+            @Html.RadioButton("Pyetja20", "OfType") OfType<br />
+            @Html.RadioButton("Pyetja20", "Where") Where<br />
+            @Html.RadioButton("Pyetja20", "Intersect") Intersect<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 21</legend>
+            <label for="1">Cila prej te meposhtemeve projekton vlerat qe bazohen ne nje funksion transformimi ?</label><br />
+            @Html.RadioButton("Pyetja21", "SelectMany") SelectMany<br />
+            @Html.RadioButton("Pyetja21", "Select") Select<br />
+            @Html.RadioButton("Pyetja21", "Select new") Select new<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 22</legend>
+            <label for="1">Cila prej te meposhtemeve nuk eshte nje funksion agregat ?</label><br />
+            @Html.RadioButton("Pyetja22", "Count") Count<br />
+            @Html.RadioButton("Pyetja22", "Sum") Sum<br />
+            @Html.RadioButton("Pyetja22", "Select") Select<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 23</legend>
+            <label for="1">Ndertohen klasat e modelit dhe me pas gjenerohen tabelat e databazes ?</label><br />
+            @Html.RadioButton("Pyetja23", "Database-First") Database-First<br />
+            @Html.RadioButton("Pyetja23", "Code-First") Code-First<br />
+            @Html.RadioButton("Pyetja23", "Model-First") Model-First<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 24</legend>
+            <label for="1">Komanda per te shtuar nje migrim ?</label><br />
+            @Html.RadioButton("Pyetja24", "update-database") update-database<br />
+            @Html.RadioButton("Pyetja24", "enable-migrations") enable-migrations<br />
+            @Html.RadioButton("Pyetja24", "add-migration") add-migration<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 25</legend>
+            <label for="1">Cila prej te meposhtemeve kthen nje element ne nje pozicion specifik ?</label><br />
+            @Html.RadioButton("Pyetja25", "ElementAt") ElementAt<br />
+            @Html.RadioButton("Pyetja25", "Firsts") First<br />
+            @Html.RadioButton("Pyetja25", "Single") Single<br />
+        </fieldset><br />
+    </div>
+    <input type="submit" value="Perfundo" />
+
+}
+

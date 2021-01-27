@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewBag.Title = "SqlQuiz";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("SqlQuiz", "Quiz", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>Informacion rreth quiz</legend>
+            <label for="quiz">Testi ka ne total 25 pyetje, ku secila pyetje ka 2 pike me nje total prej 50 pikesh.</label><br />
+            <label for="fillestar">Nqs merrni nga 0-20 pike niveli juaj eshte fillestar.</label><br />
+            <label for="mesatar">Nqs merrni nga 20-36 pike niveli juaj eshte mesatar.</label><br />
+            <label for="avancuar">Nqs merrni nga 36-50 pike niveli juaj eshte i avancuar.</label><br />
+        </fieldset> <br />
+        <fieldset>
+            <legend>Pyetja 1</legend>
+            <label for="1">Per cfare qendron Sql ?</label><br />
+            @Html.RadioButton("Pyetja1", "Structured Query Language") Structured Query Language<br />
+            @Html.RadioButton("Pyetja1", "Strong Question Language") Strong Question Language<br />
+            @Html.RadioButton("Pyetja1", "Structured Question Language") Structured Question Language<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 2</legend>
+            <label for="1">Cila perdoret per te ekstraktuar te dhena nga nje database ?</label><br />
+            @Html.RadioButton("Pyetja2", "get") get<br />
+            @Html.RadioButton("Pyetja2", "open") open<br />
+            @Html.RadioButton("Pyetja2", "select") select<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 3</legend>
+            <label for="1">Cila perdoret per te modifikuar te dhena ne nje database ?</label><br />
+            @Html.RadioButton("Pyetja3", "save as") save as<br />
+            @Html.RadioButton("Pyetja3", "modify") modify<br />
+            @Html.RadioButton("Pyetja3", "update") update<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 4</legend>
+            <label for="1">Cila perdoret per te fshire te dhena ne nje database ?</label><br />
+            @Html.RadioButton("Pyetja4", "collapse") collapse<br />
+            @Html.RadioButton("Pyetja4", "delete") delete<br />
+            @Html.RadioButton("Pyetja4", "remove") remove<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 5</legend>
+            <label for="1">Cila perdoret per te shtuar te dhena ne nje database ?</label><br />
+            @Html.RadioButton("Pyetja5", "insert into") insert into<br />
+            @Html.RadioButton("Pyetja5", "add new") add new<br />
+            @Html.RadioButton("Pyetja5", "add record") add record<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 6</legend>
+            <label for="1">Si te afishoni kolonen Emri nga tabela Person ?</label><br />
+            @Html.RadioButton("Pyetja6", "select Person.Emri") select Person.Emri<br />
+            @Html.RadioButton("Pyetja6", "extract Emri from Person") extract Emri from Person<br />
+            @Html.RadioButton("Pyetja6", "select Emri from Person") select Emri from Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 7</legend>
+            <label for="1">Si te afishoni te gjithe kolonat nga tabela Person ?</label><br />
+            @Html.RadioButton("Pyetja7", "select * from Person") select * from Person<br />
+            @Html.RadioButton("Pyetja7", "select [all] from Person") select [all] from Person<br />
+            @Html.RadioButton("Pyetja7", "select *.Person") select *.Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 8</legend>
+            <label for="1">Si te afishoni te gjithe rekordet nga tabela Person ku vlera e kolones Emri eshte Andi ?</label><br />
+            @Html.RadioButton("Pyetja8", "select [all] from Person where Emri <> 'Andi'") select [all] from Person where Emri <> 'Andi'<br />
+            @Html.RadioButton("Pyetja8", "select * from Person where Emri <> 'Andi'") select * from Person where Emri <> 'Andi'<br />
+            @Html.RadioButton("Pyetja8", "select * from Person where Emri = 'Andi'") select * from Person where Emri = 'Andi'<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 9</legend>
+            <label for="1">Si te afishoni te gjithe rekordet nga tabela Person ku vlera e kolones Emri fillon me A ?</label><br />
+            @Html.RadioButton("Pyetja9", "select * from Person where Emri Like '%A'") select * from Person where Emri Like '%A'<br />
+            @Html.RadioButton("Pyetja9", "select * from Person where Emri Like 'A%'") select * from Person where Emri Like 'A%'<br />
+            @Html.RadioButton("Pyetja9", "select * from Person where Emri = '%A%") RedirectToAction<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 10</legend>
+            <label for="1">Operatori OR shfaq nje rekord nqs ndonje nga lista e kushteve eshte e vertete ?</label><br />
+            @Html.RadioButton("Pyetja10", "E gabuar") E gabuar<br />
+            @Html.RadioButton("Pyetja10", "E vertete") E vertete<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 11</legend>
+            <label for="1">Si te afishoni te gjithe rekordet nga tabela Person ku vlera e kolones Emri eshte Andi dhe Mbiemri Hoxha ?</label><br />
+            @Html.RadioButton("Pyetja11", "select * from Person where Emri <> 'Andi' And Mbiemri <> 'Hoxha'") select * from Person where Emri <> 'Andi' And Mbiemri <> 'Hoxha'<br />
+            @Html.RadioButton("Pyetja11", "select * from Person where Emri = 'Andi' And Mbiemri = 'Hoxha'") select * from Person where Emri = 'Andi' And Mbiemri = 'Hoxha'<br />
+            @Html.RadioButton("Pyetja11", "select Emri = 'Andi', Mbiemri = 'Hoxha' from Person") select Emri = 'Andi', Mbiemri = 'Hoxha' from Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 12</legend>
+            <label for="1">Si shfaq te gjithe rekordet nga tabela Person ku Emri eshte alfabetikisht midis 'Bruno' dhe 'Kledis' ?</label><br />
+            @Html.RadioButton("Pyetja12", "select * from Person where Emri > 'Bruno' And Emri < 'Kledis'") select * from Person where Emri > 'Bruno' And Emri < 'Kledis'<br />
+            @Html.RadioButton("Pyetja12", "select * from Person where Emri Between 'Bruno' And 'Kledis'") select * from Person where Emri Between 'Bruno' And 'Kledis'<br />
+            @Html.RadioButton("Pyetja12", "select Emri > 'Bruno' And Emri < 'Kledis' from Person") select Emri > 'Bruno' And Emri < 'Kledis' from Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 13</legend>
+            <label for="1">Cila perdoret per te kthyer vetem vlera te ndryshme ?</label><br />
+            @Html.RadioButton("Pyetja13", "select distinct") select distinct<br />
+            @Html.RadioButton("Pyetja13", "select unique") select unique<br />
+            @Html.RadioButton("Pyetja13", "select different") select different<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 14</legend>
+            <label for="1">Cila perdoret per te renditur rezultatin ?</label><br />
+            @Html.RadioButton("Pyetja14", "sort") sort<br />
+            @Html.RadioButton("Pyetja14", "order") order<br />
+            @Html.RadioButton("Pyetja14", "order by") order by<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 15</legend>
+            <label for="1">Si mund te ktheni te gjithe rekordet nga tabela Person e renditur ne rendin zbrites sipas Emrit ?</label><br />
+            @Html.RadioButton("Pyetja15", "select * from Person sort by Emri DESC") select * from Person sort by Emri DESC<br />
+            @Html.RadioButton("Pyetja15", "select * from Person order by Emri DESC") select * from Person order by Emri DESC<br />
+            @Html.RadioButton("Pyetja15", "select * from Person order Emri DESC") select * from Person order Emri DESC<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 16</legend>
+            <label for="1">Si mund te shtosh rekord te ri ne tabelen Person ?</label><br />
+            @Html.RadioButton("Pyetja16", "insert values('Bruno', 'Bregu') into Person") insert values('Bruno', 'Bregu') into Person<br />
+            @Html.RadioButton("Pyetja16", "insert into Person values('Bruno', 'Bregu')") insert into Person values('Bruno', 'Bregu')<br />
+            @Html.RadioButton("Pyetja16", "insert ('Bruno', 'Bregu') into Person")insert ('Bruno', 'Bregu') into Person 3<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 17</legend>
+            <label for="1">Si shton Hoxha si Mbiemer ne tabelen Person ?</label><br />
+            @Html.RadioButton("Pyetja17", "insert into Person('Hoxha') into Mbiemer") insert into Person('Hoxha') into Mbiemer<br />
+            @Html.RadioButton("Pyetja17", "insert('Hoxha') into Person(Mbiemer)") insert('Hoxha') into Person(Mbiemer)<br />
+            @Html.RadioButton("Pyetja17", "insert into Person(Mbiemer) values ('Hoxha')") insert into Person(Mbiemer) values ('Hoxha')<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 18</legend>
+            <label for="1">Si ndryshon Bregu ne Hoxha ne kolonen Mbiemer ne tabelen Person ?</label><br />
+            @Html.RadioButton("Pyetja18", "update Person set Mbiemri ='Hoxha' into Mbiemri = 'Bregu'") update Person set Mbiemri ='Hoxha' into Mbiemri = 'Bregu'<br />
+            @Html.RadioButton("Pyetja18", "modify Person set Mbiemri ='Hoxha' where Mbiemri = 'Bregu'") modify Person set Mbiemri ='Hoxha' where Mbiemri = 'Bregu'<br />
+            @Html.RadioButton("Pyetja18", "modify Person set Mbiemri ='Hoxha' into Mbiemri = 'Bregu'") modify Person set Mbiemri ='Hoxha' into Mbiemri = 'Bregu'<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 19</legend>
+            <label for="1">Si fshin nje rekord ku emri eshte Bruno ne tabelen Person ?</label><br />
+            @Html.RadioButton("Pyetja19", "delete row Emri = 'Bruno' from Person") delete row Emri = 'Bruno' from Person<br />
+            @Html.RadioButton("Pyetja19", "delete from Person where Emri = 'Bruno'") delete from Person where Emri = 'Bruno'<br />
+            @Html.RadioButton("Pyetja19", "delete Emri = 'Bruno' from Person") delete Emri = 'Bruno' from Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 20</legend>
+            <label for="1">Si kthen numrin e rekordeve ne tabelen Person ?</label><br />
+            @Html.RadioButton("Pyetja20", "select  columns(*) from Person") select  columns(*) from Perso<br />
+            @Html.RadioButton("Pyetja20", "select  no(*) from Person") select  no(*) from Person<br />
+            @Html.RadioButton("Pyetja20", "select  count(*) from Person") select  count(*) from Person<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 21</legend>
+            <label for="1">Cila eshte me e perdorshme nga join ?</label><br />
+            @Html.RadioButton("Pyetja21", "joined table") joined table<br />
+            @Html.RadioButton("Pyetja21", "inner join") inner join<br />
+            @Html.RadioButton("Pyetja21", "inside join") inside join<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 22</legend>
+            <label for="1">Cili operator perdoret per te afishuar vlerat midis dy vlerave  ?</label><br />
+            @Html.RadioButton("Pyetja22", "range") range<br />
+            @Html.RadioButton("Pyetja22", "within") within<br />
+            @Html.RadioButton("Pyetja22", "between") between<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 23</legend>
+            <label for="1">Kufizimi NOT NULL detyron nje kolone te mos pranoje vlera boshe ?</label><br />
+            @Html.RadioButton("Pyetja23", "E vertete") E vertete<br />
+            @Html.RadioButton("Pyetja23", "E gabuar") E gabuar<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 24</legend>
+            <label for="1">Cili operator perdoret per te kerkuar per nje forme specifike ne kolone ?</label><br />
+            @Html.RadioButton("Pyetja24", "like") like<br />
+            @Html.RadioButton("Pyetja24", "get") get<br />
+            @Html.RadioButton("Pyetja24", "from") from<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 25</legend>
+            <label for="1">Si mund te krijojme tabele ne databaze te quajtur Person ?</label><br />
+            @Html.RadioButton("Pyetja25", "create db Person") create db Person<br />
+            @Html.RadioButton("Pyetja25", "create database tab Person") create database tab Person<br />
+            @Html.RadioButton("Pyetja25", "create table Person") create table Person<br />
+        </fieldset><br />
+    </div>
+    <input type="submit" value="Perfundo" />
+
+}
+

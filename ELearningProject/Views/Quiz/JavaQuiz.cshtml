@@ -1,0 +1,193 @@
+﻿
+@{
+    ViewBag.Title = "JavaQuiz";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("JavaQuiz", "Quiz", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>Informacion rreth quiz</legend>
+            <label for="quiz">Testi ka ne total 25 pyetje, ku secila pyetje ka 2 pike me nje total prej 50 pikesh.</label><br />
+            <label for="fillestar">Nqs merrni nga 0-20 pike niveli juaj eshte fillestarsit .</label><br />
+            <label for="mesatar">Nqs merrni nga 20-36 pike niveli juaj eshte mesatar .</label><br />
+            <label for="avancuar">Nqs merrni nga 36-50 pike niveli juaj eshte i avancuar .</label><br />
+
+        </fieldset> <br />
+        <fieldset>
+            <legend>Pyetja 1</legend>
+            <label for="1">Cila eshte sintaksa e sakte per te shfaqur inputin "Hello World" ne Java ?</label><br />
+            @Html.RadioButton("Pyetja1", "System.out.println(“Hello World”);", new { @class = "pyetja1", @id = "P1" }) System.out.println(“Hello World”);<br />
+            @Html.RadioButton("Pyetja1", "Echo(“Hello World”);", new { @class = "pyetja1" }) Echo(“Hello World”);<br />
+            @Html.RadioButton("Pyetja1", "Print(“Hello World”);", new { @class = "pyetja1" }) Print(“Hello World”);<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 2</legend>
+            <label for="1">Java eshte shkurtim per JavaScript ?</label><br />
+            @Html.RadioButton("Pyetja2", "E vertete") E vertete<br />
+            @Html.RadioButton("Pyetja2", "E gabuar") E gabuar<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 3</legend>
+            <label for="1">Cili eshte nje koment ne Java ?</label><br />
+            @Html.RadioButton("Pyetja3", "// This is a comment") // This is a comment<br />
+            @Html.RadioButton("Pyetja3", "/* This is a comment") /* This is a comment<br />
+            @Html.RadioButton("Pyetja3", "# This is a comment") # This is a comment<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 4</legend>
+            <label for="1">Cili eshte nje tip te dhene qe perdoret per te ruajtur tekst ?</label><br />
+            @Html.RadioButton("Pyetja4", "String") String<br />
+            @Html.RadioButton("Pyetja4", "Txt") Txt<br />
+            @Html.RadioButton("Pyetja4", "myString") myString<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 5</legend>
+            <label for="1">Si krijohet nje variabel per te ruajtur vleren me numer 5 ?</label><br />
+            @Html.RadioButton("Pyetja5", "int x = 5;") int x = 5;<br />
+            @Html.RadioButton("Pyetja5", "float x = 5;") float x = 5;<br />
+            @Html.RadioButton("Pyetja5", "num x = 5;") num x = 5;<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 6</legend>
+            <label for="1">Si krijohet nje variabel per te ruajtur vleren me numer me presje 2.8 ?</label><br />
+            @Html.RadioButton("Pyetja6", "float x = 2.8f;") float x = 2.8f;<br />
+            @Html.RadioButton("Pyetja6", "int x = 2.8f;") int x = 2.8f;<br />
+            @Html.RadioButton("Pyetja6", "byte x = 2.8f;") byte x = 2.8f;<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 7</legend>
+            <label for="1">Cila metode perdoret per te gjetur gjatesine e nje stringu ?</label><br />
+            @Html.RadioButton("Pyetja7", "Length()") Length()<br />
+            @Html.RadioButton("Pyetja7", "getLength()") getLenth()<br />
+            @Html.RadioButton("Pyetja7", "setLength()") setLength()<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 8</legend>
+            <label for="1">Cili operator perdoret per te bashkuar dy vlera ?</label><br />
+            @Html.RadioButton("Pyetja8", "+") +<br />
+            @Html.RadioButton("Pyetja8", "*") *<br />
+            @Html.RadioButton("Pyetja8", "&") &<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 9</legend>
+            <label for="1">Vlera e nje stringu mund te vendoset ne thonjeza teke ?</label><br />
+            @Html.RadioButton("Pyetja9", "E gabuar") E gabuar<br />
+            @Html.RadioButton("Pyetja9", "E vertete") E vertete<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 10</legend>
+            <label for="1">Cila metode kthen nje string me shkornja te medha ?</label><br />
+            @Html.RadioButton("Pyetja10", "toUpperCase()") toUpperCase()<br />
+            @Html.RadioButton("Pyetja10", "touppercase()") touppercase()<br />
+            @Html.RadioButton("Pyetja10", "tuc()") tuc()<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 11</legend>
+            <label for="1">Cili operator perdoret per te krahasuar dy vlera ?</label><br />
+            @Html.RadioButton("Pyetja11", "==") ==<br />
+            @Html.RadioButton("Pyetja11", "<>") <><br />
+            @Html.RadioButton("Pyetja11", "><") ><<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 12</legend>
+            <label for="1">Cila perdoret per te deklaruar nje array ne Java ?</label><br />
+            @Html.RadioButton("Pyetja12", "[]") []<br />
+            @Html.RadioButton("Pyetja12", "()") ()<br />
+            @Html.RadioButton("Pyetja12", "{}") {}<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 13</legend>
+            <label for="1">Indeksi i nje vektori fillon nga ?</label><br />
+            @Html.RadioButton("Pyetja13", "0") 0<br />
+            @Html.RadioButton("Pyetja13", "1") 1<br />
+            @Html.RadioButton("Pyetja13", "2") 2<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 14</legend>
+            <label for="1">Si mund te krijosh nje metode ne Java ?</label><br />
+            @Html.RadioButton("Pyetja14", "methodName()") methodName()<br />
+            @Html.RadioButton("Pyetja14", "(methodName)") (methodName)<br />
+            @Html.RadioButton("Pyetja14", "methodName[]") methodName[]<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 15</legend>
+            <label for="1">Si mund te therritet nje metode ne Java ?</label><br />
+            @Html.RadioButton("Pyetja15", "methodName()") methodName()<br />
+            @Html.RadioButton("Pyetja15", "(methodName)") (methodName)<br />
+            @Html.RadioButton("Pyetja15", "methodName[]") methodName[]<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 16</legend>
+            <label for="1">Cila fjale kyce perdoret per te krijuar nje klase ne Java ?</label><br />
+            @Html.RadioButton("Pyetja16", "class") class<br />
+            @Html.RadioButton("Pyetja16", "myClass") myClass<br />
+            @Html.RadioButton("Pyetja16", "className") className<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 17</legend>
+            <label for="1">Cila eshte menyra e sakte per te krijuar nje objekt te quajtur myObj te MyClass ?</label><br />
+            @Html.RadioButton("Pyetja17", "MyClass myObj = new MyClass();") MyClass myObj = new MyClass();<br />
+            @Html.RadioButton("Pyetja17", "Class myObj = new MyClass();") Class myObj = new MyClass();<br />
+            @Html.RadioButton("Pyetja17", "New myObj = MyClass();") New myObj = MyClass();<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 18</legend>
+            <label for="1">Ne Java eshte e munudr te perdorim atribute dhe metoda nga nje klase ne nje tjeter ?</label><br />
+            @Html.RadioButton("Pyetja18", "E vertete") E vertete<br />
+            @Html.RadioButton("Pyetja18", "E gabuar") E gabuar<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 19</legend>
+            <label for="1">Cila metode perdoret per te gjetur vleren maksimale te x dhe y ?</label><br />
+            @Html.RadioButton("Pyetja19", "Math.max(x,y)") Math.max(x,y)<br />
+            @Html.RadioButton("Pyetja19", "Math.maximum(x,y)") Math.maximum(x,y)<br />
+            @Html.RadioButton("Pyetja19", "Math.largest(x,y)") Math.largest(x,y)<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 20</legend>
+            <label for="1">Cila fjale kyce perdoret per te importuar nje pakete nga libraria Java API ?</label><br />
+            @Html.RadioButton("Pyetja20", "Import") Import<br />
+            @Html.RadioButton("Pyetja20", "Package") Package<br />
+            @Html.RadioButton("Pyetja20", "GetLib") GetLib<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 21</legend>
+            <label for="1">>Cili operator perdoret per te shumezuar dy numera  ?</label><br />
+            @Html.RadioButton("Pyetja21", "*") *<br />
+            @Html.RadioButton("Pyetja21", "x") x<br />
+            @Html.RadioButton("Pyetja21", "%") %<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 22</legend>
+            <label for="1">Si mund te fillosh nje kusht if ne Java ?</label><br />
+            @Html.RadioButton("Pyetja22", "If (x > y)") If (x > y)<br />
+            @Html.RadioButton("Pyetja22", "If x > y:") If x > y:<br />
+            @Html.RadioButton("Pyetja22", "If x > y then:") If x > y then:<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 23</legend>
+            <label for="1">Si mund te fillosh nje cikel while ne Java ?</label><br />
+            @Html.RadioButton("Pyetja23", "While (x > y)")While (x > y)<br />
+            @Html.RadioButton("Pyetja23", "While x > y:") While x > y:<br />
+            @Html.RadioButton("Pyetja23", "x > y while {") x > y while {<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 24</legend>
+            <label for="1">Cila fjale kyce perdoret per te kthyer nje vlere brenda nje metode ?</label><br />
+            @Html.RadioButton("Pyetja24", "return") return<br />
+            @Html.RadioButton("Pyetja24", "void") void<br />
+            @Html.RadioButton("Pyetja24", "get") get<br />
+        </fieldset><br />
+        <fieldset>
+            <legend>Pyetja 25</legend>
+            <label for="1">Cila fjale perdoret per te ndaluar nje cikel ?</label><br />
+            @Html.RadioButton("Pyetja25", "break") break<br />
+            @Html.RadioButton("Pyetja25", "exit") exit<br />
+            @Html.RadioButton("Pyetja25", "stop") stop<br />
+        </fieldset><br />
+    </div>
+    <input type="submit" value="Perfuno" id="btn" />
+}
+
